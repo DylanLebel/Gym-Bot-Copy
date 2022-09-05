@@ -1,0 +1,42 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageActionRow, MessageButton, MessageEmbed, Client } = require('discord.js');
+
+module.exports = {
+data: new SlashCommandBuilder()
+		.setName('gym')
+		.setDescription('GoogleSheets Gym'),
+	async execute(interaction) {
+
+
+
+
+
+
+const row = new MessageActionRow()
+.addComponents(
+    new MessageButton()
+       .setCustomId('PRIMARY')
+        .setLabel('Previous Workouts')
+        .setStyle("PRIMARY"),
+       // .setEmoji('123456789012345678'),
+       new MessageButton()
+       .setCustomId('SECONDARY')
+        .setLabel('New Data')
+        .setStyle("PRIMARY"),
+    new MessageButton()
+        .setCustomId("GRAPH")
+        .setLabel("GRAPH")
+        .setStyle("SUCCESS"),
+    new MessageButton()
+        .setCustomId("TEST")
+        .setLabel("Download")
+    .setStyle("DANGER"),
+);
+return interaction.reply({ content: 'Social Media', ephemeral: false, components: [row] });
+
+
+
+
+
+    }
+}
